@@ -1,0 +1,25 @@
+type: spec.insomnia.rest/5.0
+name: My Design Document
+meta:
+  id: wrk_ccfc9950168d494793d8b01734e65716
+  created: 1762203575404
+  modified: 1762203575404
+  description: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_9c05be0d7ff55b75c3b22c1cebd11756658682ae
+    created: 1762203575408
+    modified: 1762203575408
+environments:
+  name: Base Environment
+  meta:
+    id: env_9c05be0d7ff55b75c3b22c1cebd11756658682ae
+    created: 1762203575407
+    modified: 1762203575407
+    isPrivate: false
+spec:
+  meta:
+    id: spc_45ba6b8241d34730ab33bb009eba44b6
+    created: 1762203575406
+    modified: 1762203575406
