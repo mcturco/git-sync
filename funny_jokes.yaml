@@ -1,0 +1,48 @@
+type: collection.insomnia.rest/5.0
+name: Dad Jokes
+meta:
+  id: wrk_b221f6161af7460b9b60eb3c5eecf3ff
+  created: 1762202868623
+  modified: 1762202943031
+  description: ""
+collection:
+  - url: https://icanhazdadjoke.com/
+    name: Tell a joke
+    meta:
+      id: req_21e74bcb7d3646a093bf1e04b009c7cf
+      created: 1762202874344
+      modified: 1762202930849
+      isPrivate: false
+      description: ""
+      sortKey: -1762202874345
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.0.0
+        id: pair_44b582912c2441f49aa772adb6628cff
+      - id: pair_53c6a2a4d4a14f2c820794d7cdf615d5
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_2e61746b50029fc806b3529f1d49b622508c22ad
+    created: 1762202868627
+    modified: 1762202868627
+environments:
+  name: Base Environment
+  meta:
+    id: env_2e61746b50029fc806b3529f1d49b622508c22ad
+    created: 1762202868626
+    modified: 1762202868626
+    isPrivate: false
