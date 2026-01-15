@@ -1,4 +1,5 @@
 type: environment.insomnia.rest/5.0
+schema_version: "5.1"
 name: Project Environment
 meta:
   id: wrk_8399df1b409d40cab3c56d2c8bec0e19
@@ -10,5 +11,7 @@ environments:
   meta:
     id: env_6c5ad9c214f4e1e78f888fe33ed27793602fb6ea
     created: 1762203562433
-    modified: 1762203562433
+    modified: 1766506823043
     isPrivate: false
+  data:
+    baseURL: http://localhost:8000
