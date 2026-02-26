@@ -12,7 +12,7 @@ collection:
     meta:
       id: req_21e74bcb7d3646a093bf1e04b009c7cf
       created: 1762202874344
-      modified: 1772128926929
+      modified: 1772129131036
       isPrivate: false
       description: ""
       sortKey: -1762202874345
@@ -23,6 +23,10 @@ collection:
         description: ""
         disabled: false
       - name: another
+        value: change
+        description: ""
+        disabled: false
+      - name: third
         value: change
         description: ""
         disabled: false
