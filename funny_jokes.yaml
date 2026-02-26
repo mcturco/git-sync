@@ -12,13 +12,17 @@ collection:
     meta:
       id: req_21e74bcb7d3646a093bf1e04b009c7cf
       created: 1762202874344
-      modified: 1772127924647
+      modified: 1772128926929
       isPrivate: false
       description: ""
       sortKey: -1762202874345
     method: GET
     parameters:
       - name: query
+        value: change
+        description: ""
+        disabled: false
+      - name: another
         value: change
         description: ""
         disabled: false
