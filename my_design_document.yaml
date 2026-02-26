@@ -1,10 +1,535 @@
 type: spec.insomnia.rest/5.0
+schema_version: "5.1"
 name: My Design Document
 meta:
   id: wrk_ccfc9950168d494793d8b01734e65716
   created: 1762203575404
   modified: 1762203575404
   description: ""
+collection:
+  - name: pet
+    meta:
+      id: fld_a64f25f0282243dd9b2102e80399e409
+      created: 1772128398556
+      modified: 1772128398556
+      sortKey: -1772128398556
+      description: Everything about your Pets
+    children:
+      - url: "{{ _.base_url }}/pet"
+        name: Update an existing pet.
+        meta:
+          id: req_4268d96026164f84970614920e2cd88d
+          created: 1772128398558
+          modified: 1772128398558
+          isPrivate: false
+          description: Update an existing pet by Id.
+          sortKey: -1772128398558
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "name": "doggie",
+              "category": {
+                "id": 1,
+                "name": "Dogs"
+              },
+              "photoUrls": [
+                "string"
+              ],
+              "tags": [
+                {
+                  "id": 0,
+                  "name": "string"
+                }
+              ],
+              "status": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/findByStatus"
+        name: Finds Pets by status.
+        meta:
+          id: req_0139305edd2744e685fea108fe53a382
+          created: 1772128398559
+          modified: 1772128398559
+          isPrivate: false
+          description: Multiple status values can be provided with comma separated strings.
+          sortKey: -1772128398559
+        method: GET
+        parameters:
+          - name: status
+            value: available
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet"
+        name: Add a new pet to the store.
+        meta:
+          id: req_034b59c3dd1d48f6840efe7bbe549c3c
+          created: 1772128398559
+          modified: 1772128398559
+          isPrivate: false
+          description: Add a new pet to the store.
+          sortKey: -1772128398559
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "name": "doggie",
+              "category": {
+                "id": 1,
+                "name": "Dogs"
+              },
+              "photoUrls": [
+                "string"
+              ],
+              "tags": [
+                {
+                  "id": 0,
+                  "name": "string"
+                }
+              ],
+              "status": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/findByTags"
+        name: Finds Pets by tags.
+        meta:
+          id: req_a09ff6879e15463da8d045d25fdbd3c4
+          created: 1772128398559
+          modified: 1772128398559
+          isPrivate: false
+          description: Multiple tags can be provided with comma separated strings. Use
+            tag1, tag2, tag3 for testing.
+          sortKey: -1772128398559
+        method: GET
+        parameters:
+          - name: tags
+            value: string
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}"
+        name: Updates a pet in the store with form data.
+        meta:
+          id: req_6b85c27383434c7496865e8fde190959
+          created: 1772128398560
+          modified: 1772128398560
+          isPrivate: false
+          description: Updates a pet resource based on the form data.
+          sortKey: -1772128398560
+        method: POST
+        parameters:
+          - name: name
+            value: string
+            disabled: true
+          - name: status
+            value: string
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}"
+        name: Find pet by ID.
+        meta:
+          id: req_e0bbfe48793e4f51a3e71a3fdb90bd3b
+          created: 1772128398560
+          modified: 1772128398560
+          isPrivate: false
+          description: Returns a single pet.
+          sortKey: -1772128398560
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}/uploadImage"
+        name: Uploads an image.
+        meta:
+          id: req_8068afe6675e410ca27b2cc39ad677ea
+          created: 1772128398561
+          modified: 1772128398561
+          isPrivate: false
+          description: Upload image of the pet.
+          sortKey: -1772128398561
+        method: POST
+        body:
+          mimeType: application/octet-stream
+        parameters:
+          - name: additionalMetadata
+            value: string
+            disabled: true
+        headers:
+          - name: Content-Type
+            value: application/octet-stream
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}"
+        name: Deletes a pet.
+        meta:
+          id: req_c1b2d8588cf24462ac06af56e46af128
+          created: 1772128398561
+          modified: 1772128398561
+          isPrivate: false
+          description: Delete a pet.
+          sortKey: -1772128398561
+        method: DELETE
+        headers:
+          - name: api_key
+            value: string
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: user
+    meta:
+      id: fld_0b10178ae5c54cdaab57e3f73534da62
+      created: 1772128398557
+      modified: 1772128398557
+      sortKey: -1772128398557
+      description: Operations about user
+    children:
+      - url: "{{ _.base_url }}/user"
+        name: Create user.
+        meta:
+          id: req_59937050bd524b8ca9d468d1dbad61fd
+          created: 1772128398562
+          modified: 1772128398562
+          isPrivate: false
+          description: This can only be done by the logged in user.
+          sortKey: -1772128398562
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "username": "theUser",
+              "firstName": "John",
+              "lastName": "James",
+              "email": "john@email.com",
+              "password": "12345",
+              "phone": "12345",
+              "userStatus": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/login"
+        name: Logs user into the system.
+        meta:
+          id: req_03a4d14659dd41baa48615e4cce47870
+          created: 1772128398563
+          modified: 1772128398563
+          isPrivate: false
+          description: Log into the system.
+          sortKey: -1772128398563
+        method: GET
+        parameters:
+          - name: username
+            value: string
+            disabled: true
+          - name: password
+            value: string
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/createWithList"
+        name: Creates list of users with given input array.
+        meta:
+          id: req_260136fc4c4642dca7b87fdc1195a75f
+          created: 1772128398563
+          modified: 1772128398563
+          isPrivate: false
+          description: Creates list of users with given input array.
+          sortKey: -1772128398563
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            [
+              {
+                "id": 10,
+                "username": "theUser",
+                "firstName": "John",
+                "lastName": "James",
+                "email": "john@email.com",
+                "password": "12345",
+                "phone": "12345",
+                "userStatus": 1
+              }
+            ]
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/{{ _.username }}"
+        name: Update user resource.
+        meta:
+          id: req_90fb7d8fd56d445c9e6db02f6367c088
+          created: 1772128398564
+          modified: 1772128398564
+          isPrivate: false
+          description: This can only be done by the logged in user.
+          sortKey: -1772128398564
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "username": "theUser",
+              "firstName": "John",
+              "lastName": "James",
+              "email": "john@email.com",
+              "password": "12345",
+              "phone": "12345",
+              "userStatus": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/{{ _.username }}"
+        name: Get user by user name.
+        meta:
+          id: req_95e0f50133a74aac8c1b2cc42af52ae3
+          created: 1772128398564
+          modified: 1772128398564
+          isPrivate: false
+          description: Get user detail based on username.
+          sortKey: -1772128398564
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/logout"
+        name: Logs out current logged in user session.
+        meta:
+          id: req_ed5d5a64acf8471fab064123ce80a24c
+          created: 1772128398564
+          modified: 1772128398564
+          isPrivate: false
+          description: Log user out of the system.
+          sortKey: -1772128398564
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/{{ _.username }}"
+        name: Delete user resource.
+        meta:
+          id: req_7e6ebfb7ba1548ac9a36a59e32876ba7
+          created: 1772128398565
+          modified: 1772128398565
+          isPrivate: false
+          description: This can only be done by the logged in user.
+          sortKey: -1772128398565
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: store
+    meta:
+      id: fld_20427aa4f2a64bea959cb9da3119d780
+      created: 1772128398557
+      modified: 1772128398557
+      sortKey: -1772128398557
+      description: Access to Petstore orders
+    children:
+      - url: "{{ _.base_url }}/store/order"
+        name: Place an order for a pet.
+        meta:
+          id: req_9384b2a5c63c4be7aeaffd86a8a8c02f
+          created: 1772128398561
+          modified: 1772128398561
+          isPrivate: false
+          description: Place a new order in the store.
+          sortKey: -1772128398561
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "petId": 198772,
+              "quantity": 7,
+              "shipDate": "2026-02-26T17:53:18.553Z",
+              "status": "approved",
+              "complete": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/store/inventory"
+        name: Returns pet inventories by status.
+        meta:
+          id: req_f6d47b89838746d6b2d710ed893c87f6
+          created: 1772128398561
+          modified: 1772128398561
+          isPrivate: false
+          description: Returns a map of status codes to quantities.
+          sortKey: -1772128398561
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/store/order/{{ _.orderId }}"
+        name: Delete purchase order by identifier.
+        meta:
+          id: req_81ac99f92fbe407e89ad606de974a4a5
+          created: 1772128398562
+          modified: 1772128398562
+          isPrivate: false
+          description: For valid response try integer IDs with value < 1000. Anything
+            above 1000 or non-integers will generate API errors.
+          sortKey: -1772128398562
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/store/order/{{ _.orderId }}"
+        name: Find purchase order by ID.
+        meta:
+          id: req_ef24c004f41940319c3685257cef9c23
+          created: 1772128398562
+          modified: 1772128398562
+          isPrivate: false
+          description: For valid response try integer IDs with value <= 5 or > 10. Other
+            values will generate exceptions.
+          sortKey: -1772128398562
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -16,10 +541,800 @@ environments:
   meta:
     id: env_9c05be0d7ff55b75c3b22c1cebd11756658682ae
     created: 1762203575407
-    modified: 1762203575407
+    modified: 1772128398555
     isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env petstore3.swagger.io
+      meta:
+        id: env_a6457492daf04ce99d171e90dcabef9c
+        created: 1772128398556
+        modified: 1772128398556
+        isPrivate: false
+        sortKey: 1772128398556
+      data:
+        scheme: https
+        base_path: /api/v3
+        host: petstore3.swagger.io
 spec:
+  contents:
+    openapi: 3.0.4
+    info:
+      title: Swagger Petstore - OpenAPI 3.0
+      description: |-
+        This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
+        Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
+        You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+        That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+
+        Some useful links:
+        - [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
+        - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
+      termsOfService: https://swagger.io/terms/
+      contact:
+        email: apiteam@swagger.io
+      license:
+        name: Apache 2.0
+        url: https://www.apache.org/licenses/LICENSE-2.0.html
+      version: 1.0.27-SNAPSHOT
+    externalDocs:
+      description: Find out more about Swagger
+      url: https://swagger.io
+    servers:
+      - url: https://petstore3.swagger.io/api/v3
+    tags:
+      - name: pet
+        description: Everything about your Pets
+        externalDocs:
+          description: Find out more
+          url: https://swagger.io
+      - name: store
+        description: Access to Petstore orders
+        externalDocs:
+          description: Find out more about our store
+          url: https://swagger.io
+      - name: user
+        description: Operations about user
+    paths:
+      /pet:
+        put:
+          tags:
+            - pet
+          summary: Update an existing pet.
+          description: Update an existing pet by Id.
+          operationId: updatePet
+          requestBody:
+            description: Update an existent pet in the store
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Pet"
+              application/xml:
+                schema:
+                  $ref: "#/components/schemas/Pet"
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: "#/components/schemas/Pet"
+            required: true
+          responses:
+            "200":
+              description: Successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+            "400":
+              description: Invalid ID supplied
+            "404":
+              description: Pet not found
+            "422":
+              description: Validation exception
+            default:
+              description: Unexpected error
+        post:
+          tags:
+            - pet
+          summary: Add a new pet to the store.
+          description: Add a new pet to the store.
+          operationId: addPet
+          requestBody:
+            description: Create a new pet in the store
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Pet"
+              application/xml:
+                schema:
+                  $ref: "#/components/schemas/Pet"
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: "#/components/schemas/Pet"
+            required: true
+          responses:
+            "200":
+              description: Successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+            "400":
+              description: Invalid input
+            "422":
+              description: Validation exception
+            default:
+              description: Unexpected error
+      /pet/findByStatus:
+        get:
+          tags:
+            - pet
+          summary: Finds Pets by status.
+          description: Multiple status values can be provided with comma separated strings.
+          operationId: findPetsByStatus
+          parameters:
+            - name: status
+              in: query
+              description: Status values that need to be considered for filter
+              required: false
+              explode: true
+              schema:
+                type: string
+                default: available
+                enum:
+                  - available
+                  - pending
+                  - sold
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Pet"
+                application/xml:
+                  schema:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Pet"
+            "400":
+              description: Invalid status value
+            default:
+              description: Unexpected error
+      /pet/findByTags:
+        get:
+          tags:
+            - pet
+          summary: Finds Pets by tags.
+          description: Multiple tags can be provided with comma separated strings. Use
+            tag1, tag2, tag3 for testing.
+          operationId: findPetsByTags
+          parameters:
+            - name: tags
+              in: query
+              description: Tags to filter by
+              required: false
+              explode: true
+              schema:
+                type: array
+                items:
+                  type: string
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Pet"
+                application/xml:
+                  schema:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Pet"
+            "400":
+              description: Invalid tag value
+            default:
+              description: Unexpected error
+      /pet/{petId}:
+        get:
+          tags:
+            - pet
+          summary: Find pet by ID.
+          description: Returns a single pet.
+          operationId: getPetById
+          parameters:
+            - name: petId
+              in: path
+              description: ID of pet to return
+              required: true
+              schema:
+                type: integer
+                format: int64
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+            "400":
+              description: Invalid ID supplied
+            "404":
+              description: Pet not found
+            default:
+              description: Unexpected error
+        post:
+          tags:
+            - pet
+          summary: Updates a pet in the store with form data.
+          description: Updates a pet resource based on the form data.
+          operationId: updatePetWithForm
+          parameters:
+            - name: petId
+              in: path
+              description: ID of pet that needs to be updated
+              required: true
+              schema:
+                type: integer
+                format: int64
+            - name: name
+              in: query
+              description: Name of pet that needs to be updated
+              schema:
+                type: string
+            - name: status
+              in: query
+              description: Status of pet that needs to be updated
+              schema:
+                type: string
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/Pet"
+            "400":
+              description: Invalid input
+            default:
+              description: Unexpected error
+        delete:
+          tags:
+            - pet
+          summary: Deletes a pet.
+          description: Delete a pet.
+          operationId: deletePet
+          parameters:
+            - name: api_key
+              in: header
+              description: ""
+              required: false
+              schema:
+                type: string
+            - name: petId
+              in: path
+              description: Pet id to delete
+              required: true
+              schema:
+                type: integer
+                format: int64
+          responses:
+            "200":
+              description: Pet deleted
+            "400":
+              description: Invalid pet value
+            default:
+              description: Unexpected error
+      /pet/{petId}/uploadImage:
+        post:
+          tags:
+            - pet
+          summary: Uploads an image.
+          description: Upload image of the pet.
+          operationId: uploadFile
+          parameters:
+            - name: petId
+              in: path
+              description: ID of pet to update
+              required: true
+              schema:
+                type: integer
+                format: int64
+            - name: additionalMetadata
+              in: query
+              description: Additional Metadata
+              required: false
+              schema:
+                type: string
+          requestBody:
+            content:
+              application/octet-stream:
+                schema:
+                  type: string
+                  format: binary
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/ApiResponse"
+            "400":
+              description: No file uploaded
+            "404":
+              description: Pet not found
+            default:
+              description: Unexpected error
+      /store/inventory:
+        get:
+          tags:
+            - store
+          summary: Returns pet inventories by status.
+          description: Returns a map of status codes to quantities.
+          operationId: getInventory
+          x-swagger-router-controller: OrderController
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    additionalProperties:
+                      type: integer
+                      format: int32
+            default:
+              description: Unexpected error
+      /store/order:
+        post:
+          tags:
+            - store
+          summary: Place an order for a pet.
+          description: Place a new order in the store.
+          x-swagger-router-controller: OrderController
+          operationId: placeOrder
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Order"
+              application/xml:
+                schema:
+                  $ref: "#/components/schemas/Order"
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: "#/components/schemas/Order"
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Order"
+            "400":
+              description: Invalid input
+            "422":
+              description: Validation exception
+            default:
+              description: Unexpected error
+      /store/order/{orderId}:
+        get:
+          tags:
+            - store
+          summary: Find purchase order by ID.
+          x-swagger-router-controller: OrderController
+          description: For valid response try integer IDs with value <= 5 or > 10. Other
+            values will generate exceptions.
+          operationId: getOrderById
+          parameters:
+            - name: orderId
+              in: path
+              description: ID of order that needs to be fetched
+              required: true
+              schema:
+                type: integer
+                format: int64
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Order"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/Order"
+            "400":
+              description: Invalid ID supplied
+            "404":
+              description: Order not found
+            default:
+              description: Unexpected error
+        delete:
+          tags:
+            - store
+          summary: Delete purchase order by identifier.
+          description: For valid response try integer IDs with value < 1000. Anything
+            above 1000 or non-integers will generate API errors.
+          x-swagger-router-controller: OrderController
+          operationId: deleteOrder
+          parameters:
+            - name: orderId
+              in: path
+              description: ID of the order that needs to be deleted
+              required: true
+              schema:
+                type: integer
+                format: int64
+          responses:
+            "200":
+              description: order deleted
+            "400":
+              description: Invalid ID supplied
+            "404":
+              description: Order not found
+            default:
+              description: Unexpected error
+      /user:
+        post:
+          tags:
+            - user
+          summary: Create user.
+          description: This can only be done by the logged in user.
+          x-swagger-router-controller: UserController
+          operationId: createUser
+          requestBody:
+            description: Created user object
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/User"
+              application/xml:
+                schema:
+                  $ref: "#/components/schemas/User"
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: "#/components/schemas/User"
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/User"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/User"
+            default:
+              description: Unexpected error
+      /user/createWithList:
+        post:
+          tags:
+            - user
+          summary: Creates list of users with given input array.
+          description: Creates list of users with given input array.
+          x-swagger-router-controller: UserController
+          operationId: createUsersWithListInput
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/User"
+          responses:
+            "200":
+              description: Successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/User"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/User"
+            default:
+              description: Unexpected error
+      /user/login:
+        get:
+          tags:
+            - user
+          summary: Logs user into the system.
+          description: Log into the system.
+          operationId: loginUser
+          parameters:
+            - name: username
+              in: query
+              description: The user name for login
+              required: false
+              schema:
+                type: string
+            - name: password
+              in: query
+              description: The password for login in clear text
+              required: false
+              schema:
+                type: string
+          responses:
+            "200":
+              description: successful operation
+              headers:
+                X-Rate-Limit:
+                  description: calls per hour allowed by the user
+                  schema:
+                    type: integer
+                    format: int32
+                X-Expires-After:
+                  description: date in UTC when token expires
+                  schema:
+                    type: string
+                    format: date-time
+              content:
+                application/xml:
+                  schema:
+                    type: string
+                application/json:
+                  schema:
+                    type: string
+            "400":
+              description: Invalid username/password supplied
+            default:
+              description: Unexpected error
+      /user/logout:
+        get:
+          tags:
+            - user
+          summary: Logs out current logged in user session.
+          description: Log user out of the system.
+          operationId: logoutUser
+          responses:
+            "200":
+              description: successful operation
+            default:
+              description: Unexpected error
+      /user/{username}:
+        get:
+          tags:
+            - user
+          summary: Get user by user name.
+          description: Get user detail based on username.
+          operationId: getUserByName
+          parameters:
+            - name: username
+              in: path
+              description: The name that needs to be fetched. Use user1 for testing
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/User"
+                application/xml:
+                  schema:
+                    $ref: "#/components/schemas/User"
+            "400":
+              description: Invalid username supplied
+            "404":
+              description: User not found
+            default:
+              description: Unexpected error
+        put:
+          tags:
+            - user
+          summary: Update user resource.
+          description: This can only be done by the logged in user.
+          x-swagger-router-controller: UserController
+          operationId: updateUser
+          parameters:
+            - name: username
+              in: path
+              description: name that need to be deleted
+              required: true
+              schema:
+                type: string
+          requestBody:
+            description: Update an existent user in the store
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/User"
+              application/xml:
+                schema:
+                  $ref: "#/components/schemas/User"
+              application/x-www-form-urlencoded:
+                schema:
+                  $ref: "#/components/schemas/User"
+          responses:
+            "200":
+              description: successful operation
+            "400":
+              description: bad request
+            "404":
+              description: user not found
+            default:
+              description: Unexpected error
+        delete:
+          tags:
+            - user
+          summary: Delete user resource.
+          description: This can only be done by the logged in user.
+          operationId: deleteUser
+          parameters:
+            - name: username
+              in: path
+              description: The name that needs to be deleted
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: User deleted
+            "400":
+              description: Invalid username supplied
+            "404":
+              description: User not found
+            default:
+              description: Unexpected error
+    components:
+      schemas:
+        Order:
+          x-swagger-router-model: io.swagger.petstore.model.Order
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 10
+            petId:
+              type: integer
+              format: int64
+              example: 198772
+            quantity:
+              type: integer
+              format: int32
+              example: 7
+            shipDate:
+              type: string
+              format: date-time
+            status:
+              type: string
+              description: Order Status
+              example: approved
+              enum:
+                - placed
+                - approved
+                - delivered
+            complete:
+              type: boolean
+          xml:
+            name: order
+        Category:
+          x-swagger-router-model: io.swagger.petstore.model.Category
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 1
+            name:
+              type: string
+              example: Dogs
+          xml:
+            name: category
+        User:
+          x-swagger-router-model: io.swagger.petstore.model.User
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 10
+            username:
+              type: string
+              example: theUser
+            firstName:
+              type: string
+              example: John
+            lastName:
+              type: string
+              example: James
+            email:
+              type: string
+              example: john@email.com
+            password:
+              type: string
+              example: "12345"
+            phone:
+              type: string
+              example: "12345"
+            userStatus:
+              type: integer
+              description: User Status
+              format: int32
+              example: 1
+          xml:
+            name: user
+        Tag:
+          x-swagger-router-model: io.swagger.petstore.model.Tag
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+          xml:
+            name: tag
+        Pet:
+          x-swagger-router-model: io.swagger.petstore.model.Pet
+          required:
+            - name
+            - photoUrls
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 10
+            name:
+              type: string
+              example: doggie
+            category:
+              $ref: "#/components/schemas/Category"
+            photoUrls:
+              type: array
+              xml:
+                wrapped: true
+              items:
+                type: string
+                xml:
+                  name: photoUrl
+            tags:
+              type: array
+              xml:
+                wrapped: true
+              items:
+                $ref: "#/components/schemas/Tag"
+            status:
+              type: string
+              description: pet status in the store
+              enum:
+                - available
+                - pending
+                - sold
+          xml:
+            name: pet
+        ApiResponse:
+          type: object
+          properties:
+            code:
+              type: integer
+              format: int32
+            type:
+              type: string
+            message:
+              type: string
+          xml:
+            name: "##default"
   meta:
     id: spc_45ba6b8241d34730ab33bb009eba44b6
-    created: 1762203575406
-    modified: 1762203575406
+    created: 1772128395858
+    modified: 1772128395858
